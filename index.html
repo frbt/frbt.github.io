@@ -1,0 +1,19 @@
+<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+<script>
+  var contador = -99;
+  var config = {
+    apiKey: "AIzaSyChZgs7muiKoEFJ7ic2QzjJ_sVpIzSo3SQ",
+    databaseURL: "https://free-fb46d.firebaseio.com",
+    projectId: "free-fb46d",
+  };
+  firebase.initializeApp(config);
+//  var database = firebase.database();
+  const dbRefObject = firebase.database().ref('contador/');
+  dbRefObject.on("value",snap => {
+  	contador = snap.val();
+    console.log(contador);
+		//window.location.href = "https://freebitco.in/?op=signup_page#"+contador;    
+    //window.location.replace("https://freebitco.in/?op=signup_page#"+contador);
+  });
+  
+</script>
